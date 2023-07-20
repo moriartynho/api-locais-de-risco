@@ -1,11 +1,15 @@
 package com.moriartynho.apilocaisderisco.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.moriartynho.apilocaisderisco.dto.LocalDTO;
 import com.moriartynho.apilocaisderisco.locais.models.Local;
 import com.moriartynho.apilocaisderisco.repositories.LocalRepository;
 
+@Service
 public class LocalService {
 	
 	@Autowired
@@ -17,6 +21,18 @@ public class LocalService {
 
 	public void inserirLocal(Local depoimento) {
 		localRepository.save(depoimento);
+	}
+
+	public List<LocalDTO> todosOsLocais() {
+		return localRepository.findAll().stream().map(x -> new LocalDTO(x)).toList();
+	}
+
+	public LocalDTO retornaLocalPorId(Long id) {
+		return new LocalDTO(localRepository.getById(id));
+	}
+
+	public void removerLocal(Long id) {
+		localRepository.deleteById(id);
 	}
 
 }
