@@ -23,6 +23,8 @@ public class Local {
 
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private LocalDateTime data;
+	
+	private String geocode;
 
 	public Local() {
 	}
@@ -68,5 +70,17 @@ public class Local {
 	public void setData(LocalDateTime data) {
 		this.data = data;
 	}
+
+	public String getGeocode() {
+		return geocode;
+	}
+
+	public void setGeocode(String geocode) {
+		this.geocode = geocode;
+	}
+
+
+	
+	
 
 }

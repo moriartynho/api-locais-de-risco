@@ -1,5 +1,6 @@
 package com.moriartynho.apilocaisderisco.controllers;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class LocalController {
 	
 	
 	@PostMapping
-	public ResponseEntity<LocalDTO> inserirLocal(@RequestBody LocalDTO dto){
+	public ResponseEntity<LocalDTO> inserirLocal(@RequestBody LocalDTO dto) throws IOException{
 		Local depoimento = localService.fromDTO(dto);
 		localService.inserirLocal(depoimento);
 		return ResponseEntity.ok().build();
@@ -50,7 +51,7 @@ public class LocalController {
 	}
 	
 	@PutMapping(path = "/{id}")
-	public ResponseEntity<LocalDTO> editaUmLocal(@PathVariable Long id, @RequestBody LocalDTO dto){
+	public ResponseEntity<LocalDTO> editaUmLocal(@PathVariable Long id, @RequestBody LocalDTO dto) throws IOException{
 		Local depoimento = localService.fromDTO(dto);
 		localService.inserirLocal(depoimento);
 		return ResponseEntity.ok().build();
