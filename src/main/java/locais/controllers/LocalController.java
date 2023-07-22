@@ -1,4 +1,4 @@
-package com.moriartynho.apilocaisderisco.controllers;
+package locais.controllers;
 
 import java.io.IOException;
 import java.util.List;
@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.moriartynho.apilocaisderisco.dto.LocalDTO;
-import com.moriartynho.apilocaisderisco.locais.models.Local;
-import com.moriartynho.apilocaisderisco.services.LocalService;
+import locais.dto.LocalDTO;
+import locais.models.Local;
+import locais.services.LocalService;
 
 
 

@@ -1,11 +1,12 @@
-package com.moriartynho.apilocaisderisco.dto;
+package locais.dto;
 
 import java.time.LocalDateTime;
 
 import org.springframework.beans.BeanUtils;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.moriartynho.apilocaisderisco.locais.models.Local;
+
+import locais.models.Local;
 
 public class LocalDTO {
 

@@ -9,9 +9,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.moriartynho.apilocaisderisco.locais.models.Local;
-import com.moriartynho.apilocaisderisco.repositories.LocalRepository;
-import com.moriartynho.apilocaisderisco.services.LocalService;
+import locais.models.Local;
+import locais.repositories.LocalRepository;
+import locais.services.LocalService;
 
 @SpringBootApplication
 public class ApiLocaisDeRiscoApplication implements CommandLineRunner {

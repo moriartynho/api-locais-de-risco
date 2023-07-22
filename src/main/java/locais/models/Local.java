@@ -1,4 +1,4 @@
-package com.moriartynho.apilocaisderisco.locais.models;
+package locais.models;
 
 import java.time.LocalDateTime;
 
