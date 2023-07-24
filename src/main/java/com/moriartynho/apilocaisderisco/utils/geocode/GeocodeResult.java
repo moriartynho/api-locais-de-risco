@@ -1,5 +1,6 @@
 package com.moriartynho.apilocaisderisco.utils.geocode;
 
+
 public class GeocodeResult {
 	
 	private Geometry geometry;

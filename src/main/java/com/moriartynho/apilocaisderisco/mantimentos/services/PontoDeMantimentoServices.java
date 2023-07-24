@@ -1,4 +1,4 @@
-package mantimentos.services;
+package com.moriartynho.apilocaisderisco.mantimentos.services;
 
 import java.io.IOException;
 import java.util.List;
@@ -6,11 +6,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.moriartynho.apilocaisderisco.mantimentos.dto.PontoDeMantimentosDTO;
+import com.moriartynho.apilocaisderisco.mantimentos.models.PontoDeMantimentos;
+import com.moriartynho.apilocaisderisco.mantimentos.repositories.PontoDeMantimentosRepository;
 import com.moriartynho.apilocaisderisco.utils.geocode.Geocodificador;
-
-import mantimentos.dto.PontoDeMantimentosDTO;
-import mantimentos.models.PontoDeMantimentos;
-import mantimentos.repositories.PontoDeMantimentosRepository;
 
 @Service
 public class PontoDeMantimentoServices {
@@ -27,8 +26,9 @@ public class PontoDeMantimentoServices {
 
 	public void inserirPonto(PontoDeMantimentos ponto) throws IOException {
 		geocodificador = new Geocodificador();
-		String geocode = geocodificador.decodificador(ponto.getEndereco());
-		ponto.setGeocode(geocode);
+		String[] geocode = geocodificador.decodificador(ponto.getEndereco());
+		ponto.setLatitude(geocode[0]);
+		ponto.setLongitude(geocode[1]);
 		pontoRepository.save(ponto);
 	}
 

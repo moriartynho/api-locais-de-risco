@@ -1,4 +1,4 @@
-package locais.models;
+package com.moriartynho.apilocaisderisco.locais.models;
 
 import java.time.LocalDateTime;
 
@@ -12,19 +12,20 @@ import jakarta.persistence.Id;
 @Entity
 public class Local {
 
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	private String endereco;
-	
+
 	private String descricao;
 
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private LocalDateTime data;
-	
-	private String geocode;
+
+	private String latitude;
+
+	private String longitude;
 
 	public Local() {
 	}
@@ -35,9 +36,6 @@ public class Local {
 		this.descricao = descricao;
 		this.data = data;
 	}
-	
-	
-
 
 	public Long getId() {
 		return id;
@@ -71,16 +69,20 @@ public class Local {
 		this.data = data;
 	}
 
-	public String getGeocode() {
-		return geocode;
+	public String getLatitude() {
+		return latitude;
 	}
 
-	public void setGeocode(String geocode) {
-		this.geocode = geocode;
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
 	}
 
+	public String getLongitude() {
+		return longitude;
+	}
 
-	
-	
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
+	}
 
 }

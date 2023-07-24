@@ -1,4 +1,4 @@
-package mantimentos.models;
+package com.moriartynho.apilocaisderisco.mantimentos.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,7 +13,8 @@ public class PontoDeMantimentos {
 	private Long id;
 
 	private String endereco;
-	private String geocode;
+	private String latitude;
+	private String longitude;
 
 	public PontoDeMantimentos() {
 	}
@@ -39,12 +40,20 @@ public class PontoDeMantimentos {
 		this.endereco = endereco;
 	}
 
-	public String getGeocode() {
-		return geocode;
+	public String getLatitude() {
+		return latitude;
 	}
 
-	public void setGeocode(String geocode) {
-		this.geocode = geocode;
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
+
+	public String getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
 	}
 
 }

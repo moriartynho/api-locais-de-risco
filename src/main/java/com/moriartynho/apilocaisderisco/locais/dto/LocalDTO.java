@@ -1,12 +1,11 @@
-package locais.dto;
+package com.moriartynho.apilocaisderisco.locais.dto;
 
 import java.time.LocalDateTime;
 
 import org.springframework.beans.BeanUtils;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-
-import locais.models.Local;
+import com.moriartynho.apilocaisderisco.locais.models.Local;
 
 public class LocalDTO {
 
@@ -19,7 +18,9 @@ public class LocalDTO {
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private LocalDateTime data;
 
-	private String geocode;
+	private String latitude;
+
+	private String longitude;
 
 	public LocalDTO() {
 	}
@@ -67,13 +68,23 @@ public class LocalDTO {
 		this.data = data;
 	}
 
-	public String getGeocode() {
-		return geocode;
+	public String getLatitude() {
+		return latitude;
 	}
 
-	public void setGeocode(String geocode) {
-		this.geocode = geocode;
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
 	}
+
+	public String getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
+	}
+
+	
 	
 	
 

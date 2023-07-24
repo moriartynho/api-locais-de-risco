@@ -1,4 +1,4 @@
-package mantimentos.controllers;
+package com.moriartynho.apilocaisderisco.mantimentos.controllers;
 
 import java.io.IOException;
 import java.util.List;
@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import mantimentos.dto.PontoDeMantimentosDTO;
-import mantimentos.models.PontoDeMantimentos;
-import mantimentos.services.PontoDeMantimentoServices;
+import com.moriartynho.apilocaisderisco.mantimentos.dto.PontoDeMantimentosDTO;
+import com.moriartynho.apilocaisderisco.mantimentos.models.PontoDeMantimentos;
+import com.moriartynho.apilocaisderisco.mantimentos.services.PontoDeMantimentoServices;
 
 @RestController
 @RequestMapping("/pontos")

@@ -2,6 +2,9 @@ package com.moriartynho.apilocaisderisco.utils.geocode;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class GeocodeResponse {
 	private String status;
 	private List<GeocodeResult> results;

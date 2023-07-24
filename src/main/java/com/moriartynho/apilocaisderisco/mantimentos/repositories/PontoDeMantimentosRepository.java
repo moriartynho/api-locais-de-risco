@@ -1,8 +1,8 @@
-package mantimentos.repositories;
+package com.moriartynho.apilocaisderisco.mantimentos.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import mantimentos.models.PontoDeMantimentos;
+import com.moriartynho.apilocaisderisco.mantimentos.models.PontoDeMantimentos;
 
 public interface PontoDeMantimentosRepository extends JpaRepository<PontoDeMantimentos, Long> {
 

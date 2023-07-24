@@ -21,7 +21,7 @@ class GeocodificadorTest {
 	@Test
 	void deveRetornarLatitudeELongitudeDoEndereco() throws IOException {
 		String endereco = "Rua do Gravatá, 320, Jardim Marina, Itapevi, São Paulo";
-		String resposta = geocodificador.decodificador(endereco);
+		String[] resposta = geocodificador.decodificador(endereco);
 		assertNotNull(resposta);
 	}
 

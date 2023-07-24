@@ -1,4 +1,4 @@
-package locais.services;
+package com.moriartynho.apilocaisderisco.locais.services;
 
 import java.io.IOException;
 import java.util.List;
@@ -6,11 +6,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.moriartynho.apilocaisderisco.locais.dto.LocalDTO;
+import com.moriartynho.apilocaisderisco.locais.models.Local;
+import com.moriartynho.apilocaisderisco.locais.repositories.LocalRepository;
 import com.moriartynho.apilocaisderisco.utils.geocode.Geocodificador;
-
-import locais.dto.LocalDTO;
-import locais.models.Local;
-import locais.repositories.LocalRepository;
 
 @Service
 public class LocalService {
@@ -27,8 +26,9 @@ public class LocalService {
 
 	public void inserirLocal(Local local) throws IOException {
 		geocodificador = new Geocodificador();
-		String geocode = geocodificador.decodificador(local.getEndereco());
-		local.setGeocode(geocode);
+		String[] geocode = geocodificador.decodificador(local.getEndereco());
+		local.setLatitude(geocode[0]);
+		local.setLongitude(geocode[1]);
 		localRepository.save(local);
 	}
 
