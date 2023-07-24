@@ -14,10 +14,10 @@ import locais.repositories.LocalRepository;
 
 @Service
 public class LocalService {
-	
+
 	@Autowired
 	private LocalRepository localRepository;
-	
+
 	@Autowired
 	private Geocodificador geocodificador;
 
@@ -36,6 +36,7 @@ public class LocalService {
 		return localRepository.findAll().stream().map(x -> new LocalDTO(x)).toList();
 	}
 
+	@SuppressWarnings("deprecation")
 	public LocalDTO retornaLocalPorId(Long id) {
 		return new LocalDTO(localRepository.getById(id));
 	}

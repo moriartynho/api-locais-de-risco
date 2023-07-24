@@ -36,6 +36,7 @@ public class PontoDeMantimentoServices {
 		return pontoRepository.findAll().stream().map(x -> new PontoDeMantimentosDTO(x)).toList();
 	}
 
+	@SuppressWarnings("deprecation")
 	public PontoDeMantimentosDTO retornaPontoPorId(Long id) {
 		return new PontoDeMantimentosDTO(pontoRepository.getById(id));
 	}
