@@ -31,16 +31,16 @@ function adicionarMarcadorUsuario(mapa, lat, lng, titulo) {
     });
 }
 
-function adicionarMarcadorLocalDeRisco(id, mapa, lat, lng, titulo) {
+function adicionarMarcadorLocalDeRisco(local, mapa) {
     var marcador = new google.maps.Marker({
-        position: { lat: lat, lng: lng },
+        position: { lat: local.latitude, lng: local.longitude },
         map: mapa,
         icon: iconLocalDeRisco,
-        title: titulo
+        title: local.descricao
     });
 
     marcador.addListener('click', function () {
-        window.location.href = 'local-de-risco.html?id=' + id;
+        mostrarInformacoesLocal(local);
     })
 
 }
@@ -51,16 +51,25 @@ async function carregarLocaisDeRisco(mapa) {
         const data = await response.json();
 
         data.map((local) => {
-            adicionarMarcadorLocalDeRisco(
-                local.id,
-                mapa,
-                local.latitude,
-                local.longitude,
-                local.descricao
-            )
+            adicionarMarcadorLocalDeRisco(local, mapa)
         })
 
     } catch (error) {
         console.error('Erro ao carregar locais de risco:', error);
     }
 }
+
+function mostrarInformacoesLocal(local) {
+    const localInfo = document.getElementById('local-info');
+    const localEndereco = document.getElementById('local-endereco');
+    const localDescricao = document.getElementById('local-descricao');
+    const localLatitude = document.getElementById('local-latitude');
+    const localLongitude = document.getElementById('local-longitude');
+  
+    localDescricao.textContent = local.descricao;
+    localEndereco.textContent = local.endereco;
+    localLatitude.textContent = 'Latitude: ' + local.latitude;
+    localLongitude.textContent = 'Longitude: ' + local.longitude;
+  
+    localInfo.style.display = 'block';
+  }
