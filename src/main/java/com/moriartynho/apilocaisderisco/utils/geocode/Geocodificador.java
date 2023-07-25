@@ -14,7 +14,7 @@ import com.google.gson.Gson;
 @Service
 public class Geocodificador {
 
-	public String[] decodificador(String endereco) throws IOException {
+	public Double[] decodificador(String endereco) throws IOException {
 		endereco = URLEncoder.encode(endereco, "UTF-8");
 		String apiKey = "AIzaSyA7Xl0MLSgwlXj5R5yjx3MJmXTsWewPZi8";
 		String stringUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + endereco + "&key=" + apiKey;
@@ -42,7 +42,7 @@ public class Geocodificador {
                 Location location = geocodeResponse.getResults().get(0).getGeometry().getLocation();
                 Double latitude = location.getLat();
                 Double longitude = location.getLng();
-                String[] latiudeELongitude = {latitude.toString(), longitude.toString()};
+                Double[] latiudeELongitude = {latitude, longitude};
                 return latiudeELongitude;
             } else {
                 throw new RuntimeException("Nenhum resultado encontrado.");

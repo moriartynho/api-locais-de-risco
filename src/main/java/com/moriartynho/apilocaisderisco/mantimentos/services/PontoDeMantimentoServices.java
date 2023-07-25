@@ -26,7 +26,7 @@ public class PontoDeMantimentoServices {
 
 	public void inserirPonto(PontoDeMantimentos ponto) throws IOException {
 		geocodificador = new Geocodificador();
-		String[] geocode = geocodificador.decodificador(ponto.getEndereco());
+		Double[] geocode = geocodificador.decodificador(ponto.getEndereco());
 		ponto.setLatitude(geocode[0]);
 		ponto.setLongitude(geocode[1]);
 		pontoRepository.save(ponto);

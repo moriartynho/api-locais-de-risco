@@ -26,7 +26,7 @@ public class LocalService {
 
 	public void inserirLocal(Local local) throws IOException {
 		geocodificador = new Geocodificador();
-		String[] geocode = geocodificador.decodificador(local.getEndereco());
+		Double[] geocode = geocodificador.decodificador(local.getEndereco());
 		local.setLatitude(geocode[0]);
 		local.setLongitude(geocode[1]);
 		localRepository.save(local);
