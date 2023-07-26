@@ -8,12 +8,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.moriartynho.apilocaisderisco.locais.dto.LocalDTO;
 import com.moriartynho.apilocaisderisco.locais.models.Local;
@@ -31,10 +34,12 @@ public class LocalController {
 	private LocalService localService;
 	
 	
+	
 	@PostMapping
-	public ResponseEntity<LocalDTO> inserirLocal(@RequestBody LocalDTO dto) throws IOException{
-		Local depoimento = localService.fromDTO(dto);
-		localService.inserirLocal(depoimento);
+	public ResponseEntity<LocalDTO> inserirLocal(@RequestParam("imagem") MultipartFile imagem,
+            @ModelAttribute LocalDTO dto)  throws Exception{
+		Local local = localService.fromDTO(dto);
+		localService.inserirLocal(local, imagem);
 		return ResponseEntity.ok().build();
 	}
 	
@@ -53,7 +58,7 @@ public class LocalController {
 	@PutMapping(path = "/{id}")
 	public ResponseEntity<LocalDTO> editaUmLocal(@PathVariable Long id, @RequestBody LocalDTO dto) throws IOException{
 		Local depoimento = localService.fromDTO(dto);
-		localService.inserirLocal(depoimento);
+		localService.editarLocal(depoimento);
 		return ResponseEntity.ok().build();
 	}
 	

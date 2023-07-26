@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7Xl0MLSgwlXj5R5yjx3MJmXTsWewPZi8&callback=inicializarMapa" async defer></script>
+    <script src="./scripts/script.js"></script>
+</head>
+    <title>Locais de Risco</title>
+</head>
+<body>
+  <div class="card">
+    <form class="card-body" action="/locais" id="local-form" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label class="form-label">Endereço</label>
+          <input required class="form-control" id="endereco">
+          <div class="form-text">Digite o endereço. Exemplo: "Nome da rua, 1, Bairro, Cidade, Estado"</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Descrição</label>
+          <input required class="form-control" id="descricao">
+          <div class="form-text">Descreva o que se passa nesse local</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Descrição</label>
+            <input accept="image/png, image/jpeg" required type="file" class="form-control" id="imagem" name="imagem">
+          </div>
+       
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+  </div>
+</body>
+</html>

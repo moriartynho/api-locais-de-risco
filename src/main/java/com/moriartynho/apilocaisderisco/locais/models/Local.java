@@ -3,11 +3,15 @@ package com.moriartynho.apilocaisderisco.locais.models;
 import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.moriartynho.apilocaisderisco.imagem.Imagem;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Local {
@@ -26,6 +30,10 @@ public class Local {
 	private Double latitude;
 
 	private Double longitude;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "imagem_id")
+	private Imagem imagem; 
 
 	public Local() {
 	}
@@ -85,5 +93,14 @@ public class Local {
 		this.longitude = longitude;
 	}
 
+	public Imagem getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(Imagem imagem) {
+		this.imagem = imagem;
+	}
+	
+	
 
 }

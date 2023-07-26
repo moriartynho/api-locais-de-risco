@@ -3,6 +3,7 @@ package com.moriartynho.apilocaisderisco.locais.dto;
 import java.time.LocalDateTime;
 
 import org.springframework.beans.BeanUtils;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.moriartynho.apilocaisderisco.locais.models.Local;
@@ -21,7 +22,9 @@ public class LocalDTO {
 	private Double latitude;
 
 	private Double longitude;
-
+	
+	private MultipartFile imagem;
+	
 	public LocalDTO() {
 	}
 
@@ -84,6 +87,15 @@ public class LocalDTO {
 		this.longitude = longitude;
 	}
 
+	public MultipartFile getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(MultipartFile imagem) {
+		this.imagem = imagem;
+	}
+
+	
 	
 
 	

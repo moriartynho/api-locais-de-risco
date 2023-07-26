@@ -1,5 +1,7 @@
+
 const url = "http://localhost:8080";
 const iconLocalDeRisco = 'https://icons.veryicon.com/png/128/miscellaneous/linear-icon-ii/danger-20.png';
+
 
 function inicializarMapa() {
 
@@ -50,6 +52,8 @@ async function carregarLocaisDeRisco(mapa) {
         const response = await fetch(url + "/locais")
         const data = await response.json();
 
+        console.log(data)
+
         data.map((local) => {
             adicionarMarcadorLocalDeRisco(local, mapa)
         })
@@ -65,11 +69,40 @@ function mostrarInformacoesLocal(local) {
     const localDescricao = document.getElementById('local-descricao');
     const localLatitude = document.getElementById('local-latitude');
     const localLongitude = document.getElementById('local-longitude');
-  
-    localDescricao.textContent = local.descricao;
-    localEndereco.textContent = local.endereco;
+
+    localDescricao.textContent = "Descrição: " + local.descricao + " relatado em: " + local.data;
+    localEndereco.textContent = "Endereço: " + local.endereco;
     localLatitude.textContent = 'Latitude: ' + local.latitude;
     localLongitude.textContent = 'Longitude: ' + local.longitude;
-  
+
     localInfo.style.display = 'block';
-  }
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const localForm = document.getElementById('local-form');
+    const enderecoInput = document.getElementById("endereco");
+    const descricaoInput = document.getElementById("descricao");
+    const imagemInput = document.getElementById("imagem");
+
+
+    localForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append("endereco", enderecoInput.value);
+        formData.append("descricao", descricaoInput.value);
+        formData.append("imagem", imagemInput.files[0]);
+        console.log(formData)
+        const response = await fetch(`${url}/locais`, {
+            method: "POST",
+            body: formData,
+        });
+
+        if (response.ok) {
+            window.location.href = "index.html";
+        } else {
+
+            console.error("Erro ao enviar o local.");
+        }
+    });
+})

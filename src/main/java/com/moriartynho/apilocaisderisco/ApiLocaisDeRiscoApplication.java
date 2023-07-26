@@ -1,6 +1,5 @@
 package com.moriartynho.apilocaisderisco;
 
-import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 
@@ -39,7 +38,7 @@ public class ApiLocaisDeRiscoApplication implements CommandLineRunner {
 		Arrays.asList(l1, l2, l3, l4).forEach(x -> {
 			try {
 				localService.inserirLocal(x);
-			} catch (IOException e) {
+			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
