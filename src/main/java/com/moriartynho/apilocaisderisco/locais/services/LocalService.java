@@ -55,7 +55,10 @@ public class LocalService {
 
 	@SuppressWarnings("deprecation")
 	public LocalDTO retornaLocalPorId(Long id) {
-		return new LocalDTO(localRepository.getById(id));
+		Local local = localRepository.getById(id);
+		LocalDTO dto = new LocalDTO(local);
+		dto.setImagemId(local.getImagem().getId());
+		return dto;
 	}
 
 	public void removerLocal(Long id) {

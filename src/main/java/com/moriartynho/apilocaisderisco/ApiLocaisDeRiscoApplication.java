@@ -26,24 +26,24 @@ public class ApiLocaisDeRiscoApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		Local l1 = new Local(null, "Rua do Gravatá, 320, Jardim Marina, Itapevi, São Paulo", "Enchente",
-				LocalDateTime.now());
-		Local l2 = new Local(null, "Rua das Samambaias, 36, Jardim Marina, Itapevi, São Paulo", "Enchente",
-				LocalDateTime.now());
-		Local l3 = new Local(null, "Rua Jean Ramos, 7, Jardim Marina, Itapevi, São Paulo", "Enchente",
-				LocalDateTime.now());
-		Local l4 = new Local(null, "Rua da Portuguesa, 300, Vila Santa Rita, Itapevi, São Paulo", "Enchente",
-				LocalDateTime.now());
-
-		Arrays.asList(l1, l2, l3, l4).forEach(x -> {
-			try {
-				localService.inserirLocal(x);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		});
-		;
+//		Local l1 = new Local(null, "Rua do Gravatá, 320, Jardim Marina, Itapevi, São Paulo", "Enchente",
+//				LocalDateTime.now());
+//		Local l2 = new Local(null, "Rua das Samambaias, 36, Jardim Marina, Itapevi, São Paulo", "Enchente",
+//				LocalDateTime.now());
+//		Local l3 = new Local(null, "Rua Jean Ramos, 7, Jardim Marina, Itapevi, São Paulo", "Enchente",
+//				LocalDateTime.now());
+//		Local l4 = new Local(null, "Rua da Portuguesa, 300, Vila Santa Rita, Itapevi, São Paulo", "Enchente",
+//				LocalDateTime.now());
+//
+//		Arrays.asList(l1, l2, l3, l4).forEach(x -> {
+//			try {
+//				localService.inserirLocal(x);
+//			} catch (Exception e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		});
+//		;
 
 	}
 

@@ -69,11 +69,27 @@ function mostrarInformacoesLocal(local) {
     const localDescricao = document.getElementById('local-descricao');
     const localLatitude = document.getElementById('local-latitude');
     const localLongitude = document.getElementById('local-longitude');
+    const localImagem = document.getElementById('local-imagem');
 
     localDescricao.textContent = "Descrição: " + local.descricao + " relatado em: " + local.data;
     localEndereco.textContent = "Endereço: " + local.endereco;
     localLatitude.textContent = 'Latitude: ' + local.latitude;
     localLongitude.textContent = 'Longitude: ' + local.longitude;
+
+    fetch(`${url}/imagem/${BigInt(local.imagemId)}`) 
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Erro ao buscar a imagem.');
+    }
+    return response.blob();
+  })
+  .then(blob => {
+    const url = URL.createObjectURL(blob);
+    localImagem.src = url;
+  })
+  .catch(error => {
+    console.error('Erro:', error);
+  });
 
     localInfo.style.display = 'block';
 }
