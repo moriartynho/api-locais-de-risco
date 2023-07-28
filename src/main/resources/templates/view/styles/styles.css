@@ -1,0 +1,58 @@
+#local-info {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    animation: fadeInUp 0.5s ease;
+}
+
+/* Estilo personalizado para o título das informações */
+#local-info h2 {
+    margin-bottom: 10px;
+}
+
+/* Estilo personalizado para a imagem */
+#local-imagem {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.mapa__container{
+    padding: 10px;
+}
+
+/* Estilo personalizado para a classe de animação de fade-in-up */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 20px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Estilo personalizado para a classe de animação de fade-out-down */
+@keyframes fadeOutDown {
+    from {
+        opacity: 1;
+        transform: none;
+    }
+    to {
+        opacity: 0;
+        transform: translate3d(0, 20px, 0);
+    }
+}
+
+/* Estilos para esconder o elemento em telas menores */
+@media (max-width: 767px) {
+    #local-info {
+        display: none;
+    }
+}
