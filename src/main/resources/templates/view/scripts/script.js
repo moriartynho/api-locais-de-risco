@@ -7,7 +7,7 @@ const iconLocalDeRisco = 'https://icons.veryicon.com/png/128/miscellaneous/linea
 
 
 function inicializarMapa() {
-    const API_KEY = "AIzaSyCqfVyZN1W0A_ZaFyTmFzcQNmqIW4J2l5M"
+    
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
