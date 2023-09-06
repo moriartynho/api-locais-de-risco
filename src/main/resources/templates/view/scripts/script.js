@@ -1,9 +1,13 @@
 
+
 const url = "http://localhost:8080";
 const iconLocalDeRisco = 'https://icons.veryicon.com/png/128/miscellaneous/linear-icon-ii/danger-20.png';
 
 
+
+
 function inicializarMapa() {
+    const API_KEY = "AIzaSyCqfVyZN1W0A_ZaFyTmFzcQNmqIW4J2l5M"
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
